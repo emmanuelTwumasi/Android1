@@ -68,28 +68,40 @@ public final class NoteInfo implements Parcelable {
         return getCompareKey();
     }
 
-    @Override //used when we have special parcel needs
+    @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override //write and receives parcel as a parameter
+    @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(mCourse,0);
+        parcel.writeParcelable(mCourse, 0);
         parcel.writeString(mTitle);
         parcel.writeString(mText);
     }
 
-    public  static final Parcelable.Creator<NoteInfo> CREATOR = new Parcelable.Creator<NoteInfo>(){
-        @Override
-                public NoteInfo createFromParcel(Parcel parcel){
-            return new NoteInfo(parcel);
-        }
+    public static final Parcelable.Creator<NoteInfo> CREATOR =
+            new Parcelable.Creator<NoteInfo>() {
+                @Override
+                public NoteInfo createFromParcel(Parcel parcel) {
+                    return new NoteInfo(parcel);
+                }
 
                 @Override
                 public NoteInfo[] newArray(int size) {
                     return new NoteInfo[size];
                 }
-
             };
 }
+
+
+
+
+
+
+
+
+
+
+
+
