@@ -8,7 +8,6 @@ public class NoteActivityViewModel extends ViewModel {
     public static final String ORIGINAL_NOTE_COURSE_ID = "com.example.notekeeping.ORIGINAL_NOTE_COURSE_ID";
     public static final String ORIGINAL_NOTE_TITLE = "com.example.notekeeping.ORIGINAL_NOTE_TITLE";
     public static final String ORIGINAL_NOTE_TEXT = "com.example.notekeeping.ORIGINAL_NOTE_TEXT";
-
     public String mOriginalNoteCourseId;
     public String mOriginalNoteTitle;
     public String mOriginalNoteText;

@@ -15,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 
+
+
 public class NoteListActivity extends AppCompatActivity {
 
     private ArrayAdapter<NoteInfo> mAdapterNotes;
@@ -30,36 +32,40 @@ public class NoteListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(NoteListActivity.this, NoteActivity.class));
 
-                startActivity(new Intent(NoteListActivity.this,NoteActivity.class));
             }
         });
-        initialiseDisplayContent();
+
+        initializeDisplayContent();
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        mAdapterNotes.notifyDataSetChanged();;
+    protected void onResume() {
+        super.onResume();
+        mAdapterNotes.notifyDataSetChanged();
     }
 
-    private void initialiseDisplayContent() {
-        final ListView listNotes = findViewById(R.id.list_note);//call the feature by id
+    private void initializeDisplayContent() {
+        final ListView listNotes = findViewById(R.id.list_note);
 
-        final List<NoteInfo> notes =  DataManager.getInstance().getNotes();//call and store the data into a variable @note
-        //set the data into an array
-        mAdapterNotes = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,notes);
-        listNotes.setAdapter(mAdapterNotes);//set the list to be populated with the data
+        List<NoteInfo> notes = DataManager.getInstance().getNotes();
+        mAdapterNotes = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, notes);
+
+        listNotes.setAdapter(mAdapterNotes);
 
         listNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(NoteListActivity.this, NoteActivity.class);
-                NoteInfo note = (NoteInfo) listNotes.getItemAtPosition(position);//get the data
+//                NoteInfo note = (NoteInfo) listNotes.getItemAtPosition(position);
                 intent.putExtra(NoteActivity.NOTE_POSITION, position);
-                startActivity(intent);//opens the new view or activity
+                startActivity(intent);
             }
         });
+
     }
 
 }
+

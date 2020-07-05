@@ -13,4 +13,5 @@
     <string name="title_activity_note_list_actvity">NoteListActvity</string>
     <string name="_activity_note">Edit Note</string>
     <string name="menu_mail">send as email</string>
+    <string name="cancel">Cancel</string>
 </resources>

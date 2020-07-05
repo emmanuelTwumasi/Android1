@@ -1,6 +1,5 @@
 package com.example.notekeeping;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -193,6 +192,3 @@ public class DataManager {
     //endregion
 
 }
-
-
-

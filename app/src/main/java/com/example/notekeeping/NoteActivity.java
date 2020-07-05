@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class NoteActivity extends AppCompatActivity {
     public static final String NOTE_POSITION = "com.example.notekeeping.NOTE_POSITION";
+    private final String TAG = getClass().getSimpleName();
     public static final int POSITION_NOT_SET = -1;
     private NoteInfo mNote;
     private boolean mIsNewNote;
@@ -63,6 +65,7 @@ public class NoteActivity extends AppCompatActivity {
             displayNote(mSpinnerCourses, mTextNoteTitle, mTextNoteText);
     }
 
+    //notes original state except its new
     private void saveOriginalNoteValues() {
         if(mIsNewNote)
             return;
@@ -72,6 +75,7 @@ public class NoteActivity extends AppCompatActivity {
 
     }
 
+    //used as part of the activity life cycle. its
     @Override
     protected void onPause() {
         super.onPause();
@@ -134,7 +138,7 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_note, menu);
         return true;
     }
 
